@@ -33,7 +33,7 @@ package io.github.remmerw.borr
  * }
 `</pre> *
  */
-internal class Ed25519Verify(publicKey: ByteArray) {
+class Ed25519Verify(publicKey: ByteArray) {
     private val publicKey: Bytes
 
     private val outputPrefix: ByteArray

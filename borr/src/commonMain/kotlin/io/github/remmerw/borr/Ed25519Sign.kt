@@ -28,7 +28,7 @@ package io.github.remmerw.borr
  *
  * @since 1.1.0
  */
-internal class Ed25519Sign(privateKey: ByteArray) {
+class Ed25519Sign(privateKey: ByteArray) {
     private val hashedPrivateKey: ByteArray
     private val publicKey: ByteArray
     private val outputPrefix: ByteArray
