@@ -1,34 +1,11 @@
-<div>
-    <div>
-        <img src="https://img.shields.io/maven-central/v/io.github.remmerw/borr" alt="Kotlin Maven Version" />
-        <img src="https://img.shields.io/badge/Platform-Android-brightgreen.svg?logo=android" alt="Badge Android" />
-        <!--img src="https://img.shields.io/badge/Platform-iOS%20%2F%20macOS-lightgrey.svg?logo=apple" alt="Badge iOS" /-->
-        <img src="https://img.shields.io/badge/Platform-JVM-8A2BE2.svg?logo=openjdk" alt="Badge JVM" />
-    </div>
-</div>
+package io.github.remmerw.borr
 
-## Borr
-Ed25519 crypto library based on https://github.com/tink-crypto/tink-java
+import kotlin.io.encoding.Base64
+import kotlin.test.Test
+import kotlin.test.assertNotNull
 
-## Integration
+class Tests {
 
-```
-    
-kotlin {
-    sourceSets {
-        commonMain.dependencies {
-            ...
-            implementation("io.github.remmerw:borr:0.0.1")
-        }
-        ...
-    }
-}
-    
-```
-
-## API
-
-```
     @Test
     fun ed25519() {
         val keys = Ed25519Sign.KeyPair.newKeyPair()
@@ -55,10 +32,5 @@ kotlin {
         val verifier = Ed25519Verify(publicKey)
         verifier.verify(signature, msg) // throws exception in case is not verified
     }
-```
 
-
-
-
-
-
+}
