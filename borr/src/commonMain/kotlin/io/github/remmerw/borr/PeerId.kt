@@ -44,3 +44,12 @@ fun sign(keys: Keys, data: ByteArray): ByteArray { // move to Asen
     val signer = Ed25519Sign(keys.privateKey)
     return signer.sign(data)
 }
+
+
+fun decode58(input: String): ByteArray {
+    return Base58.decode58(input)
+}
+
+fun encode58(data: ByteArray): String {
+    return Base58.encode58(data)
+}

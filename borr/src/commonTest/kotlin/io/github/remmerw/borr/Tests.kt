@@ -1,7 +1,9 @@
 package io.github.remmerw.borr
 
 import kotlin.io.encoding.Base64
+import kotlin.random.Random
 import kotlin.test.Test
+import kotlin.test.assertContentEquals
 import kotlin.test.assertNotNull
 
 class Tests {
@@ -31,6 +33,16 @@ class Tests {
         // verify with public key
         val verifier = Ed25519Verify(publicKey)
         verifier.verify(signature, msg) // throws exception in case is not verified
+    }
+
+
+    @Test
+    fun encodeDecode(){
+        val data = Random.nextBytes(32)
+        val encoded = encode58(data)
+        val cmp = decode58(encoded)
+        assertContentEquals(data, cmp)
+
     }
 
 }
