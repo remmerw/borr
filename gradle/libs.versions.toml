@@ -1,16 +1,16 @@
 [versions]
-agp = "8.11.0"
-kotlin = "2.2.0"
-sha2 = "0.7.0"
-cryptoRand = "0.5.1"
+agp = "8.13.0"
+kotlin = "2.2.20"
+runner = "1.7.0"
 
 [libraries]
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
 kotlin-stdlib = { group = "org.jetbrains.kotlin", name = "kotlin-stdlib", version.ref = "kotlin" }
-sha2 = { module = "org.kotlincrypto.hash:sha2", version.ref = "sha2" }
-crypto-rand = { module = "org.kotlincrypto.random:crypto-rand", version.ref = "cryptoRand" }
+runner = { module = "androidx.test:runner", version.ref = "runner" }
+sha2 = { module = "org.kotlincrypto.hash:sha2", version = "0.8.0" }
+crypto-rand = { module = "org.kotlincrypto.random:crypto-rand", version = "0.6.0" }
 
 [plugins]
 androidLibrary = { id = "com.android.library", version.ref = "agp" }
 kotlinMultiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
-vanniktech-mavenPublish = { id = "com.vanniktech.maven.publish", version = "0.33.0" }
+vanniktech-mavenPublish = { id = "com.vanniktech.maven.publish", version = "0.34.0" }
