@@ -13,7 +13,7 @@ const val SIGNATURE_LEN: Int = Field25519.FIELD_LEN * 2
  */
 
 internal fun randBytes(size: Int): ByteArray {
-    return CryptoRand.Default.nextBytes(ByteArray(size))
+    return CryptoRand.nextBytes(ByteArray(size))
 }
 
 

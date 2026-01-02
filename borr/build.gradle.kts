@@ -1,9 +1,4 @@
-@file:OptIn(ExperimentalWasmDsl::class, ExperimentalKotlinGradlePluginApi::class)
 
-import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
-import org.jetbrains.kotlin.gradle.ExperimentalWasmDsl
-import org.jetbrains.kotlin.gradle.dsl.JvmTarget
-import org.jetbrains.kotlin.gradle.plugin.KotlinSourceSetTree
 
 plugins {
     alias(libs.plugins.kotlinMultiplatform)
@@ -12,18 +7,23 @@ plugins {
 }
 
 group = "io.github.remmerw"
-version = "0.0.5"
+version = "0.0.6"
 
 kotlin {
+    androidLibrary {
+        namespace = "io.github.remmerw.borr"
+        compileSdk = 36
+        minSdk = 27
 
 
-    androidTarget {
-        instrumentedTestVariant.sourceSetTree.set(KotlinSourceSetTree.test)
-        publishLibraryVariants("release")
-        compilerOptions {
-            jvmTarget.set(JvmTarget.JVM_21)
+
+        // Opt-in to enable and configure device-side (instrumented) tests
+        withDeviceTest {
+            instrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+            execution = "ANDROIDX_TEST_ORCHESTRATOR"
         }
     }
+
 
 
     jvm()
@@ -51,31 +51,9 @@ kotlin {
                 implementation(libs.kotlin.test)
             }
         }
-
-        androidInstrumentedTest.dependencies {
-            implementation(libs.kotlin.test)
-            implementation(libs.runner)
-        }
-
-        androidUnitTest.dependencies {
-            implementation(libs.kotlin.test)
-        }
     }
 }
 
-
-android {
-    namespace = "io.github.remmerw.borr"
-    compileSdk = 36
-    defaultConfig {
-        minSdk = 27
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-    }
-    compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_21
-        targetCompatibility = JavaVersion.VERSION_21
-    }
-}
 
 
 mavenPublishing {

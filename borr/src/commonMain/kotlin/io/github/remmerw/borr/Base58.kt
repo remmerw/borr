@@ -39,7 +39,6 @@ internal object Base58 {
      * @throws IllegalArgumentException if the input data is null.
      */
     fun encode58(data: ByteArray): String {
-        requireNotNull(data) { "Input data cannot be null." }
         if (data.isEmpty()) {
             return ""
         }
@@ -82,7 +81,6 @@ internal object Base58 {
      * @throws IllegalArgumentException if the input string contains invalid Base58 characters.
      */
     fun decode58(input: String): ByteArray {
-        requireNotNull(input) { "Input string cannot be null." }
         if (input.isEmpty()) {
             return byteArrayOf()
         }
