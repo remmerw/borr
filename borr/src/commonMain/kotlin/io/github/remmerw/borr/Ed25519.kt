@@ -28,10 +28,8 @@ import org.kotlincrypto.hash.sha2.SHA512
 </pre> *
  *
  * @see [Bernstein D.J., Birkner P., Joye M., Lange
- * T., Peters C.
- * @see [Hisil H., Wong K.KH., Carter G., Dawson E.
- *
-](https://eprint.iacr.org/2008/522.pdf)](https://eprint.iacr.org/2008/013.pdf) */
+ * T., Peters C.] (https://eprint.iacr.org/2008/522.pdf)
+ * @see [Hisil H., Wong K.KH., Carter G., Dawson E.] (https://eprint.iacr.org/2008/013.pdf) */
 internal object Ed25519 {
     private const val SIGNATURE_LEN: Int = Field25519.FIELD_LEN * 2
 
@@ -234,7 +232,7 @@ internal object Ed25519 {
      *
      * Although B_TABLE[32][8] (B_TABLE[i][] = (j+1)*B*256^i) has j values in [0, 7], the select
      * method negates the corresponding point if b is negative (which is straight forward in elliptic
-     * curves by just negating y coordinate). Therefore we can get multiples of B with the half of
+     * curves by just negating y coordinate). Therefore, we can get multiples of B with the half of
      * memory requirements.
      *
      * @param t   neutral element (i.e., point 0), also serves as output.
@@ -297,7 +295,7 @@ internal object Ed25519 {
 
         val ret = PartialXYZT(NEUTRAL)
         val xyzt = XYZT()
-        // Although B_TABLE's i can be at most 31 (stores only 32 4bit multiples of B) and we have 64
+        // Although B_TABLE's 'i' can be at most 31 (stores only 32 4bit multiples of B) and we have 64
         // 4bit values in e array, the below for loop adds cached values by iterating e by two in odd
         // indices. After the result, we can double the result point 4 times to shift the multiplication
         // scalar by 4 bits.
@@ -1423,7 +1421,7 @@ internal object Ed25519 {
         h[0] = (h[0].toInt() and 248).toByte()
         // Clear the highest bit of the last octet.
         h[31] = (h[31].toInt() and 127).toByte()
-        // Set the second highest bit if the last octet.
+        // Set the second-highest bit if the last octet.
         h[31] = (h[31].toInt() or 64).toByte()
         return h
     }
@@ -1728,6 +1726,7 @@ internal object Ed25519 {
      * Can be converted to XYZT as follows:
      * X1 = X * T = x * Z * T = x * Z1
      * Y1 = Y * Z = y * T * Z = y * Z1
+     *
      * Z1 = Z * T = Z * T
      * T1 = X * Y = x * Z * y * T = x * y * Z1 = X1Y1 / Z1
      */

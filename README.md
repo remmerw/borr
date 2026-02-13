@@ -18,7 +18,7 @@ kotlin {
     sourceSets {
         commonMain.dependencies {
             ...
-            implementation("io.github.remmerw:borr:0.0.6")
+            implementation("io.github.remmerw:borr:0.0.7")
         }
         ...
     }

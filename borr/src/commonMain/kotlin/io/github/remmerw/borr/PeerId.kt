@@ -1,7 +1,7 @@
 package io.github.remmerw.borr
 
 
-// hash is always (32 bit) and it is a Ed25519 public key
+// hash is always (32 bit) and it is an Ed25519 public key
 data class PeerId(val hash: ByteArray) {
 
     override fun hashCode(): Int {

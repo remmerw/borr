@@ -21,7 +21,7 @@ package io.github.remmerw.borr
  * implementation](https://github.com/agl/curve25519-donna/blob/master/curve25519-donna.c) (mostly identical).
  *
  *
- * Field elements are written as an array of signed, 64-bit limbs (an array of longs), least
+ * Field elements are written as an array of signed, 64-bit limbs (an array of longs), the least
  * significant first. The value of the field element is:
  *
  * <pre>
@@ -173,7 +173,7 @@ internal object Field25519 {
         //
         // Each of these shifts and adds ends up multiplying the value by 19.
         //
-        // For output[0..8], the absolute entry value is < 14*2^54 and we add, at most, 19*14*2^54 thus,
+        // For output[0..8], the absolute entry value is < 14*2^54, and we add, at most, 19*14*2^54 thus,
         // on exit, |output[0..8]| < 280*2^54.
         output[8] += output[18] shl 4
         output[8] += output[18] shl 1
@@ -217,7 +217,7 @@ internal object Field25519 {
         while (i < LIMB_CNT) {
             var over = output[i] / TWO_TO_26
             // The entry condition (that |output[i]| < 280*2^54) means that over is, at most, 280*2^28 in
-            // the first iteration of this loop. This is added to the next limb and we can approximate the
+            // the first iteration of this loop. This is added to the next limb, and we can approximate the
             // resulting bound of that limb by 281*2^54.
             output[i] -= over shl 26
             output[i + 1] += over
@@ -371,7 +371,7 @@ internal object Field25519 {
         // On entry, input[9] < 2^26 so the carry was, at most, one, since (2**26-1) >> 25 = 1. Thus
         // input[0] >= -19.
         //
-        // In the second pass, each limb is decreased by at most one. Thus the second borrow-propagation
+        // In the second pass, each limb is decreased by at most one. Thus, the second borrow-propagation
         // pass could only have wrapped around to decrease input[0] again if the first pass left
         // input[0] negative *and* input[1] through input[9] were all zero.  In that case, input[1] is
         // now 2^25 - 1, and this last borrow-propagation step will leave input[1] non-negative.
@@ -412,7 +412,7 @@ internal object Field25519 {
             mask = mask and eq(input[i].toInt(), MASK[i and 1])
         }
 
-        // mask is either 0xffffffff (if input >= 2^255-19) and zero otherwise. Thus this conditionally
+        // mask is either 0xffffffff (if input >= 2^255-19) and zero otherwise. Thus, this conditionally
         // subtracts 2^255-19.
         input[0] -= (mask and 0x3ffffed).toLong()
         input[1] -= (mask and 0x1ffffff).toLong()
