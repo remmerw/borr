@@ -10,7 +10,7 @@ group = "io.github.remmerw"
 version = "0.0.7"
 
 kotlin {
-    androidLibrary {
+    android {
         namespace = "io.github.remmerw.borr"
         compileSdk = 36
         minSdk = 27
@@ -27,15 +27,18 @@ kotlin {
 
 
     jvm()
-    // iosX64()
+    iosX64()
     // iosArm64()
     // iosSimulatorArm64()
-    // linuxArm64()
+    linuxArm64()
     // linuxX64()
     // linuxArm64()
     // wasmJs()
     // wasmWasi()
-    // js()
+    js {
+        browser()
+        nodejs()
+    }
 
     sourceSets {
         commonMain {
