@@ -27,12 +27,11 @@ kotlin {
 
 
     jvm()
-    iosX64()
+    // iosX64()
     // iosArm64()
     // iosSimulatorArm64()
-    linuxArm64()
-    // linuxX64()
     // linuxArm64()
+    // linuxX64()
     // wasmJs()
     // wasmWasi()
     js {
