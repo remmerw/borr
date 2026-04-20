@@ -12,7 +12,7 @@ version = "0.0.7"
 kotlin {
     android {
         namespace = "io.github.remmerw.borr"
-        compileSdk = 36
+        compileSdk = 37
         minSdk = 27
 
 
