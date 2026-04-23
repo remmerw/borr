@@ -7,7 +7,7 @@ plugins {
 }
 
 group = "io.github.remmerw"
-version = "0.0.7"
+version = "0.0.8"
 
 kotlin {
     android {
@@ -34,10 +34,10 @@ kotlin {
     // linuxX64()
     // wasmJs()
     // wasmWasi()
-    js {
-        browser()
-        nodejs()
-    }
+    // js {
+    //    browser()
+    //    nodejs()
+    // }
 
     sourceSets {
         commonMain {
