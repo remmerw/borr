@@ -13,7 +13,7 @@ class Tests {
         val keys = Ed25519Sign.KeyPair.newKeyPair()
 
         // sign a msg
-        val msg = "moin moin".encodeToByteArray()
+        val msg = "test test".encodeToByteArray()
         val signer = Ed25519Sign(keys.getPrivateKey())
         val signature = signer.sign(msg)
 
