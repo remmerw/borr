@@ -1,6 +1,5 @@
 version: 2
 updates:
-  # Example for Node.js (npm) packages
   - package-ecosystem: "npm"
     directory: "/"
     schedule:
