@@ -1023,14 +1023,20 @@ internal object Ed25519 {
             (a1 * b11 + a2 * b10 + a3 * b9 + a4 * b8 + a5 * b7 + a6 * b6 + a7 * b5 + a8 * b4 + a9 * b3 + a10 * b2 + a11 * b1)
         var s13 =
             (a2 * b11 + a3 * b10 + a4 * b9 + a5 * b8 + a6 * b7 + a7 * b6 + a8 * b5 + a9 * b4 + a10 * b3 + a11 * b2)
+
         var s14 =
             (a3 * b11 + a4 * b10 + a5 * b9 + a6 * b8 + a7 * b7 + a8 * b6 + a9 * b5 + a10 * b4 + a11 * b3)
         var s15 =
             a4 * b11 + a5 * b10 + a6 * b9 + a7 * b8 + a8 * b7 + a9 * b6 + a10 * b5 + a11 * b4
+
         var s16 = a5 * b11 + a6 * b10 + a7 * b9 + a8 * b8 + a9 * b7 + a10 * b6 + a11 * b5
+
         var s17 = a6 * b11 + a7 * b10 + a8 * b9 + a9 * b8 + a10 * b7 + a11 * b6
+
         var s18 = a7 * b11 + a8 * b10 + a9 * b9 + a10 * b8 + a11 * b7
+
         var s19 = a8 * b11 + a9 * b10 + a10 * b9 + a11 * b8
+
         var s20 = a9 * b11 + a10 * b10 + a11 * b9
         var s21 = a10 * b11 + a11 * b10
         var s22 = a11 * b11
